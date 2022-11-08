@@ -1,3 +1,50 @@
+<?php
+//    session_start();
+//    if(!isset($_SESSION['login'])){
+//        echo "<script>
+//                alert('Akses ditolak, silahkan login dulu');
+//                document.location.href = 'login.php';
+//            </script>";
+//    }else{
+//        $username = $_SESSION['login'];
+//    }
+
+   require 'config.php';
+
+   if(isset($_POST['submit'])){
+       $nama = $_POST['username'];
+       $email = $_POST['email'];
+       $opini = $_POST['opini'];
+       $tanggal_contact = $_POST['tanggal_contact'];
+       {
+
+       $result = mysqli_query($db, 
+       "INSERT INTO contact (username, email, opini, tanggal_contact) 
+       VALUES ('$nama', '$email', '$opini', '$tanggal_contact')");
+
+       if($result){
+        echo "
+            <script>
+               alert('Data berhasil di kirim');
+            </script>
+            ";
+       }
+       else{
+        echo "
+            <script>
+               alert('Data gagal di kirim');
+            </script>
+            ";
+       }
+
+   }
+}
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
     <!-- ini halaman user-form-contact -->
@@ -31,7 +78,7 @@
             <table>
                     <div class="formgrup1">
                         <label>Username:</label>
-                        <input type="text" name="nama" placeholder="Username..." />
+                        <input type="text" name="username" placeholder="Username..." />
                     </div>
                     <div class="formgrup1">
                         <label>Email:</label>
@@ -39,7 +86,7 @@
                     </div>
                     <div class="formgrup2">
                         <label>Message</label>
-                        <textarea name="meassage" placeholder="  Your Message..."></textarea><br> 
+                        <textarea name="opini" placeholder="  Your Message..."></textarea><br> 
                     </div>
                     <div class="formgrup">
                         <br>
