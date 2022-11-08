@@ -61,9 +61,9 @@
             <img class="logo" src="css/pictures/gotlogo.png" alt="logo GOT" height="100px">
             <div>
                 <ul class="nav_links">
-                    <li><a title="Home" href="admin_page.php">Home</a></li>
-                    <li><a title="Clan Page" href="form_house.php">Clan GOT</a></li>
-                    <li><a title="Character Page" href="form_char.php">Character GOT</a></li>
+                    <li><a title="Home" href="index.php">Home</a></li>
+                    <li><a title="Clan Page" href="house.php">Clan GOT</a></li>
+                    <li><a title="Character Page" href="char.php">Character GOT</a></li>
                     <li><a title="Contact Us" href="form_contact.php">Contact Us</a></li>
                 </ul>
             </div>
