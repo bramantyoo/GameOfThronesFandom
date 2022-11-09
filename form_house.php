@@ -17,18 +17,18 @@
        $region_house = $_POST['region_house'];
        $words_house = $_POST['words_house'];
 
-       $pic_house  = $_FILES['pic_house']['name'];
-       $x = explode('.',$pic_house);
+       $pic_house  = $_FILES['pict_house']['name'];
+       $x = explode('.',$pict_house);
        $ekstensi = strtolower(end($x));
-       $pic_house_baru = "$name_house.$ekstensi";
+       $pict_house_baru = "$name_house.$ekstensi";
        
-       $tmp = $_FILES['pic_house']['tmp_name'];
+       $tmp = $_FILES['pict_house']['tmp_name'];
        
-       if(move_uploaded_file($tmp, "pic_house/".$pic_house_baru)){
+       if(move_uploaded_file($tmp, "pic_house/".$pict_house_baru)){
 
        $result = mysqli_query($db, 
-       "INSERT INTO house (name_house, loc_house, region_house, words_house, pic_house) 
-       VALUES ('$name_house', '$loc_house', '$region_house', '$words_house', '$pic_house_baru')");
+       "INSERT INTO house (name_house, loc_house, region_house, words_house, pict_house) 
+       VALUES ('$name_house', '$loc_house', '$region_house', '$words_house', '$pict_house_baru')");
 
        if($result){
         echo "
@@ -112,8 +112,8 @@
                         <textarea name="words_house" placeholder="  About House..."></textarea><br> 
                     </div>
                     <div class="formgrup1">
-                        <label for="">Upload pic Character : </label>
-                        <input type="file" name = "pic_house"><br><br>
+                        <label for="">Upload pic House : </label>
+                        <input type="file" name = "pict_house"><br><br>
                     </div>
                     <div class="formgrup">
                         <br>
