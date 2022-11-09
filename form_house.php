@@ -17,7 +17,7 @@
        $region_house = $_POST['region_house'];
        $words_house = $_POST['words_house'];
 
-       $pic_house  = $_FILES['pict_house']['name'];
+       $pict_house  = $_FILES['pict_house']['name'];
        $x = explode('.',$pict_house);
        $ekstensi = strtolower(end($x));
        $pict_house_baru = "$name_house.$ekstensi";
