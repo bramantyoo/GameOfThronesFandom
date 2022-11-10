@@ -6,6 +6,7 @@ body {
     padding: 0;   
     background: url(pictures/wallGOT2.jpg);
     background-attachment: fixed;
+    background-size: cover;
 }
 
 header {
