@@ -1,7 +1,5 @@
 /* untuk contact.php */
 
-/* untuk contact.php */
-
 
 
 body {
@@ -10,6 +8,7 @@ body {
     padding: 0;   
     background: url(pictures/wallGOT2.jpg);
     background-attachment: fixed;
+    background-size: cover;
 }
 
 header {
@@ -150,7 +149,7 @@ table{
     margin: 2% 0;
     font-size: 0.9em;
     font-family: sans-serif;
-    min-width: 10%;
+    min-width: 7%;
     box-shadow: 0 0 2% rgba(0, 0, 0, 0.15);
 }
 
