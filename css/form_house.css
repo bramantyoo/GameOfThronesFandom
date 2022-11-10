@@ -1,13 +1,12 @@
 /* untuk form_house.php */
 
-/* untuk form_house.php */
-
 body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;   
     background: url(pictures/wallGOT2.jpg);
     background-attachment: fixed;
+    background-size: cover;
 }
 
 header {
