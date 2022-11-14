@@ -23,7 +23,7 @@
                 <input type="password" name="password" placeholder="Password" class="input" required>
                 <input type="submit" name="login" value="Login" class="submit">
                 <a href="index.php">
-                    <button type="button" class ="button_user">Login Sebagai User</button>
+                    <button type="button" class ="button_user">Login As User</button>
                 </a>
             </form>
         </div>
