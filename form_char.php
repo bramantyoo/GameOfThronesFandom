@@ -1,13 +1,13 @@
 <?php
-//    session_start();
-//    if(!isset($_SESSION['login'])){
-//        echo "<script>
-//                alert('Akses ditolak, silahkan login dulu');
-//                document.location.href = 'login.php';
-//            </script>";
-//    }else{
-//        $username = $_SESSION['login'];
-//    }
+   session_start();
+   if(!isset($_SESSION['login'])){
+       echo "<script>
+               alert('Akses ditolak, silahkan login dulu');
+               document.location.href = 'admin_login.php';
+           </script>";
+   }else{
+       $username = $_SESSION['login'];
+   }
 
    require 'config.php';
 
@@ -68,8 +68,8 @@
             <img class="logo" src="css/pictures/gotlogo.png" alt="logo GOT" height="100px">
             <div>
                 <ul class="nav_links">
-                    <li><a title="Home" href="admin_page.php">Home Admin</a></li>
-                    <li><a title="Clan Form Page" href="form_house.php">Clan Form GOT</a></li>
+                    <li><a title="Home" href="admin_page.php">Back to Admin Page</a></li>
+                    <li><a title="Clan Form Page" href="form_house.php">House Form GOT</a></li>
                     <li><a title="Character Form Page" href="form_char.php">Character Form GOT</a></li>
                     <li><a title="Contact Form Us" href="contact.php">Contact</a></li>
                 </ul>
@@ -79,7 +79,7 @@
 
     <main> 
         <div id="#" class="sec-content-form">
-            <h2>Add Character</h2>
+            <h2>Add Character : </h2>
             <form action="" method="post" enctype="multipart/form-data"> 
             <!-- form field di sini -->
             <table>
