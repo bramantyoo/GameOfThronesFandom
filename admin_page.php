@@ -4,16 +4,24 @@
     $result1 = mysqli_query($db, "SELECT * FROM karakter");
     $result2 = mysqli_query($db, "SELECT * FROM house");
 
+    if (isset($_GET['search'])){
+      $result2 = mysqli_query($db, "SELECT * FROM house WHERE name_house LIKE '%".
+          $_GET['search']."%'");
+    }
     $res3 = "SELECT c.*,p.* FROM karakter c, house p WHERE c.id_house = p.id_house";
     $result3 = mysqli_query($db,$res3)
+
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Admin Menu</title>
-<link rel="stylesheet" href="css/admin_page.css">
+  <title>GOT | Admin Menu</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://kit.fontawesome.com/e271e8456c.js" crossorigin="anonymous"></script>
+
 
 </head>
 <body>
@@ -27,9 +35,9 @@
     </div>
     <ul class="sidebar-list">
       <li class="sidebar-list-item">
-        <a href="#">
+        <a href="form_house.php">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          <span>Home</span>
+          <span>Add Data</span>
         </a>
       </li>
       <li class="sidebar-list-item active">
@@ -45,15 +53,9 @@
         </a>
       </li>
       <li class="sidebar-list-item">
-        <a href="#">
+        <a href="contact.php">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-inbox"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>
           <span>Inbox</span>
-        </a>
-      </li>
-      <li class="sidebar-list-item">
-        <a href="#">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-          <span>Notifications</span>
         </a>
       </li>
     </ul>
@@ -79,33 +81,13 @@
       <button class="app-content-headerButton">Add House</button>
     </div>
     <div class="app-content-actions">
-      <input class="search-bar" placeholder="Search..." type="text">
+    <form action="" method="get"> 
+        <label for="search"></label>
+        <input name="search" class="search-bar" placeholder="Search..." type="text">
+      </form>
       <div class="app-content-actions-wrapper">
-        <div class="filter-button-wrapper">
-          <button class="action-button filter jsFilter"><span>Filter</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-filter"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></button>
-          <div class="filter-menu">
-            <label>Category</label>
-            <select>
-              <option>All Categories</option>
-              <option>Furniture</option>                     <option>Decoration</option>
-              <option>Kitchen</option>
-              <option>Bathroom</option>
-            </select>
-            <label>Status</label>
-            <select>
-              <option>All Status</option>
-              <option>Active</option>
-              <option>Disabled</option>
-            </select>
-            <div class="filter-menu-buttons">
-              <button class="filter-button reset">
-                Reset
-              </button>
-              <button class="filter-button apply">
-                Apply
-              </button>
-            </div>
-          </div>
+        <div>
+          <button class="action-button filter jsFilter"></button>
         </div>
         <button class="action-button list active" title="List View">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
@@ -126,9 +108,9 @@
         <div class="product-cell category">ID<button class="sort-button">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z"/></svg>
           </button></div>
-        <div class="product-cell status-cell">Status<button class="sort-button">
+        <!-- <div class="product-cell status-cell">Status<button class="sort-button">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z"/></svg>
-          </button></div>
+          </button></div> -->
         <div class="product-cell sales">Region<button class="sort-button">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z"/></svg>
           </button></div>
@@ -137,28 +119,34 @@
           </button></div>
         <div class="product-cell price">Words<button class="sort-button">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path fill="currentColor" d="M496.1 138.3L375.7 17.9c-7.9-7.9-20.6-7.9-28.5 0L226.9 138.3c-7.9 7.9-7.9 20.6 0 28.5 7.9 7.9 20.6 7.9 28.5 0l85.7-85.7v352.8c0 11.3 9.1 20.4 20.4 20.4 11.3 0 20.4-9.1 20.4-20.4V81.1l85.7 85.7c7.9 7.9 20.6 7.9 28.5 0 7.9-7.8 7.9-20.6 0-28.5zM287.1 347.2c-7.9-7.9-20.6-7.9-28.5 0l-85.7 85.7V80.1c0-11.3-9.1-20.4-20.4-20.4-11.3 0-20.4 9.1-20.4 20.4v352.8l-85.7-85.7c-7.9-7.9-20.6-7.9-28.5 0-7.9 7.9-7.9 20.6 0 28.5l120.4 120.4c7.9 7.9 20.6 7.9 28.5 0l120.4-120.4c7.8-7.9 7.8-20.7-.1-28.5z"/></svg>
-          </button></div>
+          </button></div>   
       </div>
       <?php 
           $i = 1;
-          while($row = mysqli_fetch_array($result2)){
+          while($row = mysqli_fetch_assoc($result2)){
       ?>
       <div class="products-row">
         <button class="cell-more-button">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
         </button>
           <div class="product-cell image">
-            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="product">
+            <img src="pic_house/<?=$row['pict_house']?>" alt="" width="100px">
             <span><?=$row['name_house']?></span>
           </div>
-        <div class="product-cell category"><span class="cell-label">Category:</span><?=$row['id_house']?></div>
-        <div class="product-cell status-cell">
+        <div class="product-cell category"><span class="cell-label">ID:</span><?=$row['id_house']?></div>
+        <!-- <div class="product-cell status-cell">
           <span class="cell-label">Status:</span>
           <span class="status active">Active</span>
+        </div> -->
+        <div class="product-cell sales"><span class="cell-label">Region:</span><?=$row['region_house']?></div>
+        <div class="product-cell stock"><span class="cell-label">Location:</span><?=$row['loc_house']?></div>
+        <div class="product-cell price"><span class="cell-label">Words:</span><?=$row['words_house']?></div>
+        <div class="cell=label" >
+          <a class="fa-solid fa-square-pen" class="edit" href="edit_house.php?id_house=<?=$row['id_house']?>"></a>
         </div>
-        <div class="product-cell sales"><span class="cell-label">Sales:</span><?=$row['region_house']?></div>
-        <div class="product-cell stock"><span class="cell-label">Stock:</span><?=$row['loc_house']?></div>
-        <div class="product-cell price"><span class="cell-label">Price:</span><?=$row['words_house']?></div>
+        <div class="cell=label" >
+          <a class="fa-solid fa-trash" class="hapus" href="hapus_house.php?id_house=<?=$row['id_house']?>"></a>
+        </div>
       </div>
       <?php
           $i++; 
@@ -374,7 +362,7 @@
 
 
 <!-- partial -->
-  <script  src="js/admin_page.js"></script>
+  <script  src="css/js/admin_page.js"></script>
 
 </body>
 </html>
