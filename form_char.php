@@ -79,7 +79,7 @@
 
     <main> 
         <div id="#" class="sec-content-form">
-            <h2>Add Character : </h2>
+            <h2>Add Character</h2>
             <form action="" method="post" enctype="multipart/form-data"> 
             <!-- form field di sini -->
             <table>
