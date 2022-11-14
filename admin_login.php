@@ -22,7 +22,7 @@
                 <label for="">Password</label>
                 <input type="password" name="password" placeholder="Password" class="input" required>
                 <input type="submit" name="login" value="Login" class="submit">
-                <a href="user_login.php">
+                <a href="index.php">
                     <button type="button" class ="button_user">Login Sebagai User</button>
                 </a>
             </form>
