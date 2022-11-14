@@ -1,14 +1,4 @@
 <?php
-   session_start();
-   if(!isset($_SESSION['login'])){
-       echo "<script>
-               alert('Akses ditolak, silahkan login dulu');
-               document.location.href = 'admin_login.php';
-           </script>";
-   }else{
-       $username = $_SESSION['login'];
-   }
-
    require 'config.php';
 
    if(isset($_POST['submit'])){
