@@ -1,5 +1,6 @@
 <?php
 
+
    require 'config.php';
 
    if(isset($_POST['submit'])){
@@ -65,7 +66,6 @@
                     <li><a title="Contact Form Us" href="contact.php">Contact</a></li>
                 </ul>
             </div>
-            <a href="logout.php"><button class="contact">Logout</button></a>
     </header>
 
     <main> 

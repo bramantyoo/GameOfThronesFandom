@@ -9,6 +9,6 @@ if(isset($_GET['id_char'])){
         "DELETE FROM karakter WHERE id_char='$id_char'");
 
     if($result){
-        header("Location:character.php");
+        header("Location:char_admin.php");
     }
 }

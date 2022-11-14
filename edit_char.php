@@ -7,7 +7,7 @@
    }
    $result3 = mysqli_query($db, 
    "SELECT * FROM karakter WHERE id_char='$id_char'"); 
-   $row = mysqli_fetch_assoc($result2);
+   $row = mysqli_fetch_assoc($result3);
 
 
    if(isset($_POST['submit'])){
@@ -28,9 +28,8 @@
         $result3 = mysqli_query($db, 
         "UPDATE house SET 
         name_char='$name_char',
-        id_house= $id_house,
-        caption_char= $caption_char,
-        caption_char='$caption_char',
+        id_house= '$id_house',
+        caption_char= '$caption_char',
         pict_char='$pict_char_baru'
         WHERE id_char='$id_char'");
 
@@ -38,7 +37,7 @@
             echo "
                 <script>
                 alert('Data berhasil di edit');
-                document.location.href = 'character.php'
+                document.location.href = 'char_admin.php'
                 </script>
                 ";
         }
@@ -94,7 +93,7 @@
                     </div>
                     <div class="formgrup1">
                         <label>Nama House :</label>
-                        <input type="text" name="id_house" placeholder="text here..." />
+                        <input type="number" name="id_house" placeholder="text here..." />
                     </div>
                     <div class="formgrup1">
                         <label>Title Character :</label>

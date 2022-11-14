@@ -14,13 +14,12 @@
             <img class="logo" src="css/pictures/gotlogo.png" alt="logo GOT" height="100px">
             <div>
                 <ul class="nav_links">
-                    <li><a title="Home" href="admin_page.php">Home Admin</a></li>
+                    <li><a title="Home" href="admin_page.php">Back to Home Admin</a></li>
                     <li><a title="Clan Form Page" href="form_house.php">Clan Form GOT</a></li>
                     <li><a title="Character Form Page" href="form_char.php">Character Form GOT</a></li>
                     <li><a title="Contact Form Us" href="contact.php">Contact</a></li>
                 </ul>
             </div>
-            <a href="logout.php"><button class="contact">Logout</button></a>
     </header>
     <main>
     <div class="container">

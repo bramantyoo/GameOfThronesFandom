@@ -1,13 +1,4 @@
 <?php
-//    session_start();
-//    if(!isset($_SESSION['login'])){
-//        echo "<script>
-//                alert('Akses ditolak, silahkan login dulu');
-//                document.location.href = 'login.php';
-//            </script>";
-//    }else{
-//        $username = $_SESSION['login'];
-//    }
 
    require 'config.php';
 
@@ -52,7 +43,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Contact</title>
+    <title>GOT | Form Contact | User</title>
     <link rel="stylesheet" href="css/form_contact.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 </head>
@@ -61,13 +52,9 @@
             <img class="logo" src="css/pictures/gotlogo.png" alt="logo GOT" height="100px">
             <div>
                 <ul class="nav_links">
-                    <li><a title="Home" href="index.php">Home</a></li>
-                    <li><a title="Clan Page" href="house.php">Clan GOT</a></li>
-                    <li><a title="Character Page" href="char.php">Character GOT</a></li>
-                    <li><a title="Contact Us" href="form_contact.php">Contact Us</a></li>
+                    <li><a title="Home" href="user_page.php">Page User</a></li>
                 </ul>
             </div>
-            <a href="logout.php"><button class="contact">Logout</button></a>
     </header>
 
     <main> 
